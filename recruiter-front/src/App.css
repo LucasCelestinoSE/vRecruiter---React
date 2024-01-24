@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-family: "Open Sans", sans-serif;
+  vertical-align: baseline;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: end;
+  transition: background-color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar.with-background {
+  background-color: rgba(12, 15, 60, 0.8);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar .container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  display: inline;
+  margin: 0 20px;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navbar li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #2bc58c;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s;
+}
+
+.navbar li:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+  transform: translateX(0%);
+  left: 0;
+}
+
+.navbar li:hover a {
+  color: #2bc58c;
+}
+
+.navbar.with-background {
+  background-color: rgba(12, 15, 60, 0.8);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.navbar.with-background .navbar a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navbar.with-background .navbar li:hover a {
+  color: #2bc58c;
+}
+
+.navbar.with-background .navbar li::after {
+  background-color: #2bc58c;
+}
+
+.App.with-background .navbar {
+  background-color: rgba(12, 15, 60, 0.8);
+  transition: background-color 0.3s ease;
+}
+
+.App.with-background .navbar {
+  z-index: 1000;
+}
+
+.App.with-background .navbar a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.App.with-background .navbar li:hover a {
+  color: #2bc58c;
+}
+
+.App.with-background .navbar li::after {
+  background-color: #2bc58c;
+}
+
+.bm-menu-wrap {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 250px; /* Largura do menu */
+  height: 100%;
+  background-color: #33333379;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.185);
+}
+
+.bm-item {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 20px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.bm-item:hover {
+  color: #2bc58c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .bm-menu-wrap {
+    display: block;
   }
 }
