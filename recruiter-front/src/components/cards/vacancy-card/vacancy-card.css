@@ -1,0 +1,74 @@
+.vacancy-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-start;
+  justify-content: space-evenly;
+  width: 250px;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vacancy-card:hover {
+  transform: scale(1.01);
+}
+
+.vacancy-details {
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.company-info {
+  display: flex;
+}
+
+.logo-company {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.name-company {
+  font-size: 14px;
+  margin: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vacancy-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.vacancy-description {
+  font-size: 12px;
+  width: 200px;
+  margin-top: 16px;
+  text-align: start;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+}
+
+.vacancy-button {
+  width: 200px;
+  background-color: #2bc58c;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.vacancy-button:hover {
+  background-color: #219f74;
+}

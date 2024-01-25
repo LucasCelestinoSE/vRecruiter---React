@@ -1,0 +1,51 @@
+.company-card {
+  width: 200px;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.company-card:hover {
+  transform: scale(1.005);
+}
+
+.company-logo {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.company-details {
+  text-align: center;
+}
+
+.company-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.company-card.hovered {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.company-button {
+  background-color: #2bc58c;
+  width: 100%;
+  height: 40px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 22px;
+}
+
+.company-button:hover {
+  background-color: #219f74;
+}

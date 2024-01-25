@@ -42,50 +42,7 @@ function App() {
     });
   }, []);
 
-  return (
-    <Router>
-      <div className={`App ${navbarBackground ? "with-background" : ""}`}>
-        <div className="navbar">
-          <ul>
-            <li>
-              <Link to="/home">ACESSAR VAGAS</Link>
-            </li>
-            <li>
-              <a href="#contact">CONTATO</a>
-            </li>
-            <li>
-              <a href="#about-us">SOBRE NÓS</a>
-            </li>
-          </ul>
-        </div>
-
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<UserHomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/about-us" element={<AboutUs />} />
-        </Routes>
-
-        <div className="login-page" id="login">
-          <LoginPage />
-        </div>
-
-        <div className="contact-page" id="contact">
-          <ContactPage />
-        </div>
-
-        <div className="plans-page" id="plans">
-          <PlansPage />
-        </div>
-
-        <div className="about-us" id="about-us">
-          <AboutUs />
-        </div>
-
-        <Footer />
-      </div>
-    </Router>
-  );
+  return <UserHomePage />;
 }
 
 export default App;

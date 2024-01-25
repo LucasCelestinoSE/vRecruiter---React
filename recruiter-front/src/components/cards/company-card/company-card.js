@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./company-card.css";
 import { Link } from "react-router-dom";
-const CompanyCard = ({ id, name, imageUrl }) => {
+
+const CompanyCard = ({ id, companyName, imageUrl }) => {
   const [isHover, setIsHover] = useState(false);
 
   const handleCardClick = () => {
-    <Link to={`/company/${id}`}> </Link>;
+    <Link to={`/company/${id}`}></Link>;
   };
 
   return (
@@ -15,18 +16,10 @@ const CompanyCard = ({ id, name, imageUrl }) => {
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <img
-        src={
-          name === "COMPES"
-            ? "assets/images/COMPES.png"
-            : "assets/images/LK.png"
-        }
-        alt={name}
-        className="company-logo"
-      />
+      <img src={imageUrl} alt={companyName} className="company-logo" />
       <div className="company-details">
-        <p className="company-name">{name}</p>
- 
+        <p className="company-name">{companyName}</p>
+        <button className="company-button">Ver perfil</button>
       </div>
     </div>
   );

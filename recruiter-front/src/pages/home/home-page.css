@@ -1,26 +1,57 @@
-.search-bar {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+.user-info {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
 }
 
-.search-bar input {
+.sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 50px;
+}
+
+.sections .companies-section {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.sections .companies-section h1 {
+  font-size: 1.2rem;
+}
+
+.sections .search-bar {
+  display: flex;
+  width: 500px;
+  align-items: center;
+}
+
+.sections .search-bar input {
   flex: 1;
   padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-right: 0;
+  border: 1px solid #4b4b4b;
+  border-radius: 15px;
 }
 
-.search-bar button {
+.sections .search-bar button {
   background-color: #2bc58c;
+  width: 50px;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px 12px 12px 0px;
   padding: 10px;
   cursor: pointer;
+  margin-left: -12px;
 }
 
-.search-bar button:hover {
+.sections .search-bar button:hover {
   background-color: #219f74;
+}
+
+.sections .search-bar svg {
+  color: #2bc58c;
+  font-size: 20px;
 }
