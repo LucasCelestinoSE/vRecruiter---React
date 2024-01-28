@@ -1,0 +1,158 @@
+.VacancyPage-container {
+  position: relative;
+}
+
+.VacancyPage-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.VacancyPage-back-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+.VacancyPage-large-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.VacancyPage-small-image,
+.VacancyPage-image-text,
+.VacancyPage-image-button {
+  position: absolute;
+  left: 20px;
+}
+
+.VacancyPage-small-image {
+  top: 30%;
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.VacancyPage-image-text {
+  top: 70%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.VacancyPage-image-button {
+  top: 80%;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #2bc58c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.VacancyPage-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: flex-start;
+  justify-items: center;
+  justify-content: center;
+}
+
+.VacancyPage-content h2 {
+  margin-top: 16px;
+  font-size: 1.2rem;
+}
+
+.VacancyPage-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.VacancyPage-description {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+}
+
+.requisitos {
+  font-size: 1rem;
+  color: #555;
+  max-width: 800px;
+}
+
+@media (max-width: 480px) {
+  .VacancyPage-large-image {
+    width: 100vw;
+    height: 300px;
+    object-fit: fill;
+  }
+
+  .VacancyPage-small-image,
+  .VacancyPage-image-text,
+  .VacancyPage-image-button {
+    position: absolute;
+    left: 20px;
+  }
+
+  .VacancyPage-small-image {
+    top: 20%;
+    width: 150px;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .VacancyPage-image-text {
+    top: 65%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .VacancyPage-image-button {
+    top: 75%;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #2bc58c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .VacancyPage-content {
+    padding: 20px;
+  }
+
+  .VacancyPage-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .VacancyPage-description {
+    font-size: 1rem;
+    color: #555;
+    max-width: 400px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .requisitos {
+    font-size: 1rem;
+    color: #555;
+    max-width: 800px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}

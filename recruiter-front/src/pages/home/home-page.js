@@ -4,7 +4,7 @@ import VacancyCard from "../../components/cards/vacancy-card/vacancy-card";
 import "./home-page.css";
 import BannerImage from "../../assets/images/Background.png";
 import UserButton from "../../components/buttons/userButton";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaArrowUp } from "react-icons/fa";
 
 const UserHomePage = () => {
   const [userName, setUserName] = useState("José Eduardo Santos Azevedo");
@@ -39,11 +39,9 @@ const UserHomePage = () => {
 
   return (
     <div className="user-home-page">
-      <img
-        src={BannerImage}
-        alt="Background"
-        style={{ width: "100%", height: "400px", objectFit: "cover" }}
-      />
+      <div className="banner">
+        <img src={BannerImage} alt="Background" />
+      </div>
 
       <div className="user-info">
         <UserButton
@@ -82,7 +80,7 @@ const UserHomePage = () => {
             companyName={"Nome da Empresa"}
             title={"Título da Vaga"}
             description={
-              "Uma descrição muito foda que anima qualquer um que ar le e vai querer dar uma olhada."
+              "Uma descrição muito foda que anima qualquer um que a ler e vai querer dar uma olhada."
             }
           />
         </section>
@@ -95,7 +93,7 @@ const UserHomePage = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          Scroll to Top
+          <FaArrowUp />
         </button>
       )}
     </div>

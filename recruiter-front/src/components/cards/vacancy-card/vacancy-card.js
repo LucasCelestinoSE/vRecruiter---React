@@ -5,14 +5,9 @@ import { Link } from "react-router-dom";
 const VacancyCard = ({ id, companyName, imageUrl, title, description }) => {
   const [isHover, setIsHover] = useState(false);
 
-  const handleCardClick = () => {
-    <Link to={`/vacancy/${id}`}></Link>;
-  };
-
   return (
     <div
       className={`vacancy-card ${isHover ? "hovered" : ""}`}
-      onClick={handleCardClick}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -25,7 +20,9 @@ const VacancyCard = ({ id, companyName, imageUrl, title, description }) => {
         <div>
           <p className="vacancy-title">{title}</p>
           <p className="vacancy-description">{description}</p>
-          <button className="vacancy-button">ACESSAR</button>
+          <Link to={`/vacancy/${id}`}>
+            <button className="vacancy-button">ACESSAR</button>
+          </Link>
         </div>
       </div>
     </div>

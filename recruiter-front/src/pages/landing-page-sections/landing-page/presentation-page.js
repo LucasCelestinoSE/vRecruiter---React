@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import "./landing-page.css";
+import React, { useRef } from "react";
+import "./presentation-page.css";
 import Lottie from "lottie-web";
 import logo from "../../../assets/images/logo-bgr.png";
 import TextTransition, { presets } from "react-text-transition";
 
-function LandingPage() {
+function PresentationPage() {
   const [index, setIndex] = React.useState(0);
   const words = ["talento", "experiência", "resultados"];
 
@@ -62,4 +62,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default PresentationPage;
