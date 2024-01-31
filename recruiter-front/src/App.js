@@ -8,6 +8,7 @@ import LandingPage from "./pages/landing-page.js";
 import UserHomePage from "./pages/home/home-page";
 import VacancyPage from "./pages/vacancy-page/vacancy-page.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CompanyPage from "./pages/company-page/company-page.js";
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
           <Route path="/home" element={<UserHomePage />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/plans" element={<PlansPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/vacancy/:id" element={<VacancyPage />} />
+          <Route path="/company/:id" element={<CompanyPage />} />
         </Routes>
       </div>
     </Router>

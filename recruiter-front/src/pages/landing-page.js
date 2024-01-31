@@ -9,6 +9,7 @@ import LoginPage from "./landing-page-sections/login-page/login-page";
 import ContactPage from "./landing-page-sections/contact-page/contact-page";
 import AboutUs from "./landing-page-sections/about-us/about-us";
 import PlansPage from "./landing-page-sections/plans-page/plans-page";
+import ScrollTopButton from "../components/buttons/scroll-top-button/scroll-top-button";
 
 function App() {
   const [navbarBackground, setNavbarBackground] = useState(false);
@@ -98,11 +99,7 @@ function App() {
       </div>
       <Footer />
 
-      {showScrollButton && (
-        <div className="scroll-top-button" onClick={scrollToTop}>
-          <FaArrowUp />
-        </div>
-      )}
+      {showScrollButton && <ScrollTopButton />}
     </div>
   );
 }

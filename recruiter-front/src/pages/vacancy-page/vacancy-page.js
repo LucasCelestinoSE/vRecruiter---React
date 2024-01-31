@@ -17,13 +17,15 @@ const VacancyPage = () => {
           src={Banner}
           alt="Imagem Grande"
         />
-        <img
-          className="VacancyPage-small-image"
-          src={Logo}
-          alt="Imagem Pequena"
-        />
-        <p className="VacancyPage-image-text">RECRUITER</p>
-        <button className="VacancyPage-image-button">Candidatar-se</button>
+        <div className="VacancyPage-company-info">
+          <img
+            className="VacancyPage-small-image"
+            src={Logo}
+            alt="Imagem Pequena"
+          />
+          <p className="VacancyPage-image-text">RECRUITER</p>
+          <button className="VacancyPage-image-button">Candidatar-se</button>
+        </div>
       </div>
 
       <div className="VacancyPage-content">

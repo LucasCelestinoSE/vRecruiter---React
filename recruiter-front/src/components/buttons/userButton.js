@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-import {
-  FaUser,
-  FaAngleDown,
-  FaUserCircle,
-  FaSignOutAlt,
-} from "react-icons/fa";
-
+import { FaAngleDown, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./userButton.css";
 
 const UserButton = ({ username, onProfileClick, onLogoutClick }) => {
@@ -15,20 +10,31 @@ const UserButton = ({ username, onProfileClick, onLogoutClick }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleLogoutClick = () => {
+    onLogoutClick();
+  };
+
   return (
     <div className="user-button" onClick={handleDropdownToggle}>
       <span>{username}</span>
       <FaAngleDown color="#fff" />
       {isDropdownOpen && (
         <div className="dropdown-menu">
-          <span onClick={onProfileClick}>
-            <FaUserCircle />
-            <span>Perfil</span>
-          </span>
-          <span onClick={onLogoutClick}>
-            <FaSignOutAlt />
-            <span>Sair</span>
-          </span>
+          <div className="dropdown-menu-item">
+            <span onClick={onProfileClick}>
+              <FaUserCircle />
+              <span>Perfil</span>
+            </span>
+          </div>
+
+          <div className="dropdown-menu-item">
+            <span onClick={onProfileClick}>
+              <FaSignOutAlt />
+              <Link to="/" onClick={handleLogoutClick}>
+                <span>Sair</span>
+              </Link>
+            </span>
+          </div>
         </div>
       )}
     </div>

@@ -5,6 +5,7 @@ import "./home-page.css";
 import BannerImage from "../../assets/images/Background.png";
 import UserButton from "../../components/buttons/userButton";
 import { FaSearch, FaArrowUp } from "react-icons/fa";
+import ScrollTopButton from "../../components/buttons/scroll-top-button/scroll-top-button";
 
 const UserHomePage = () => {
   const [userName, setUserName] = useState("José Eduardo Santos Azevedo");
@@ -87,14 +88,7 @@ const UserHomePage = () => {
       </div>
 
       {isVisible && (
-        <button
-          className="scroll-top-button"
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        >
-          <FaArrowUp />
-        </button>
+       <ScrollTopButton />
       )}
     </div>
   );

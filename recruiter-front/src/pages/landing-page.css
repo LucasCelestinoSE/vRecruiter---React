@@ -147,40 +147,14 @@
 }
 
 .bm-item svg {
-  margin-right: 8px; 
+  margin-right: 8px;
 }
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.scroll-top-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #2bc58c;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  cursor: pointer;
-  display: none;
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-  animation: fadeInUp 0.5s ease-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.scroll-top-button:hover {
-  background-color: #219f74;
-}
-
-.scroll-top-button svg {
-  font-size: 24px;
-}
 
 @keyframes fadeInUp {
   from {
@@ -210,6 +184,12 @@
 
 @media (max-width: 768px) {
   .navbar {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .bm-burger-button {
     display: none;
   }
 }
