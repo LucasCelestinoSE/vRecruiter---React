@@ -1,11 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../../../services/auth-provider";
 import "./login-page.css";
 
 function LoginPage() {
+  const { login: authLogin, register: authRegister } = useAuth();
   const [isLoginForm, setIsLoginForm] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [, setPasswordsMatch] = useState(true);
+
+  useEffect(() => {
+    const isUserLoggedIn = localStorage.getItem("user") !== null;
+    if (isUserLoggedIn) {
+      window.location.href = "/home";
+    }
+  }, []);
 
   const handleToggleForm = () => {
     setIsLoginForm(!isLoginForm);
+  };
+
+  const handleLoginOrSignUp = async () => {
+    try {
+      if (isLoginForm) {
+        await authLogin(email, password);
+      } else {
+        if (password === confirmPassword) {
+          await authRegister(email, password);
+        } else {
+          console.error("Senhas não coincidem");
+          setPasswordsMatch(false);
+          return;
+        }
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -55,16 +86,31 @@ function LoginPage() {
           <form>
             <div className="form-group">
               <label htmlFor="email">EMAIL</label>
-              <input type="email" id="user-email" />
+              <input
+                type="email"
+                id="user-email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="password">SENHA</label>
-              <input type="password" id="password" />
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             {!isLoginForm && (
               <div className="form-group">
                 <label htmlFor="confirmPassword">CONFIRMAR SENHA</label>
-                <input type="password" id="confirmPassword" />
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
               </div>
             )}
 
@@ -75,7 +121,11 @@ function LoginPage() {
               </p>
             )}
             <div className="form-actions">
-              <button type="button" className="login-button">
+              <button
+                type="button"
+                className="login-button"
+                onClick={handleLoginOrSignUp}
+              >
                 {isLoginForm ? "LOGIN" : "CRIAR CONTA"}
               </button>
               <button

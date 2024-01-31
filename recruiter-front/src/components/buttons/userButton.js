@@ -28,9 +28,9 @@ const UserButton = ({ username, onProfileClick, onLogoutClick }) => {
           </div>
 
           <div className="dropdown-menu-item">
-            <span onClick={onProfileClick}>
+            <span onClick={handleLogoutClick}>
               <FaSignOutAlt />
-              <Link to="/" onClick={handleLogoutClick}>
+              <Link to="/">
                 <span>Sair</span>
               </Link>
             </span>

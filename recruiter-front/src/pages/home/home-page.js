@@ -4,7 +4,8 @@ import VacancyCard from "../../components/cards/vacancy-card/vacancy-card";
 import "./home-page.css";
 import BannerImage from "../../assets/images/Background.png";
 import UserButton from "../../components/buttons/userButton";
-import { FaSearch, FaArrowUp } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { logout } from "../../services/auth";
 import ScrollTopButton from "../../components/buttons/scroll-top-button/scroll-top-button";
 
 const UserHomePage = () => {
@@ -48,7 +49,7 @@ const UserHomePage = () => {
         <UserButton
           username={userName}
           onProfileClick={() => console.log("Perfil clicado")}
-          onLogoutClick={() => console.log("Sair clicado")}
+          onLogoutClick={() => logout()}
         />
       </div>
 
@@ -87,9 +88,7 @@ const UserHomePage = () => {
         </section>
       </div>
 
-      {isVisible && (
-       <ScrollTopButton />
-      )}
+      {isVisible && <ScrollTopButton />}
     </div>
   );
 };
