@@ -1,22 +1,49 @@
 import React, { useState, useRef } from "react";
 import Lottie from "lottie-web";
+import { addFormDataToFirestore } from "../../../services/firestore-DB";
+
 import logo from "../../../assets/images/logo-bgr.png";
 import "./contact-page.css";
 
 function ContactPage() {
-  const [selectedProducts, setSelectedProducts] = useState([]);
+  const [selectedServices, setselectedServices] = useState([]);
   const [selectedCount, setSelectedCount] = useState(0);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = {
+      nome: event.target.nome.value,
+      email: event.target.email.value,
+      telefone: event.target.telefone.value,
+      empresa: event.target.empresa.value,
+      cargo: event.target.cargo.value,
+      funcionarios: event.target.funcionarios.value,
+      servicos: selectedServices,
+    };
+
+    try {
+      // Adiciona os dados ao Firestore
+      const docId = await addFormDataToFirestore(formData);
+
+      // Lógica adicional, se necessário
+
+      // Redireciona ou executa outras ações após o sucesso
+    } catch (error) {
+      // Lida com erros, se necessário
+    }
+  };
 
   const handleProductChange = (event) => {
     const value = event.target.value;
 
-    if (selectedProducts.includes(value)) {
-      setSelectedProducts(
-        selectedProducts.filter((product) => product !== value)
+    if (selectedServices.includes(value)) {
+      setselectedServices(
+        selectedServices.filter((product) => product !== value)
       );
       setSelectedCount(selectedCount - 1);
     } else if (selectedCount < 3) {
-      setSelectedProducts([...selectedProducts, value]);
+      setselectedServices([...selectedServices, value]);
       setSelectedCount(selectedCount + 1);
     }
   };
@@ -67,7 +94,7 @@ function ContactPage() {
         <div className="contact-animation" ref={container}></div>
       </div>
       <div className="contact-right-section">
-        <form>
+        <form onSubmit={handleFormSubmit}>
           <p>
             Por favor, preencha o formulário e entraremos em contato dentro de
             um dia útil.
@@ -109,7 +136,7 @@ function ContactPage() {
                 onChange={handleProductChange}
                 disabled={
                   selectedCount >= 3 &&
-                  !selectedProducts.includes("Recrutamento")
+                  !selectedServices.includes("Recrutamento")
                 }
               />
               Recrutamento
@@ -121,7 +148,7 @@ function ContactPage() {
                 value="Admissão"
                 onChange={handleProductChange}
                 disabled={
-                  selectedCount >= 3 && !selectedProducts.includes("Admissão")
+                  selectedCount >= 3 && !selectedServices.includes("Admissão")
                 }
               />
               Admissão
@@ -134,7 +161,7 @@ function ContactPage() {
                 onChange={handleProductChange}
                 disabled={
                   selectedCount >= 3 &&
-                  !selectedProducts.includes("Educação corporativa")
+                  !selectedServices.includes("Educação corporativa")
                 }
               />
               Educação corporativa
@@ -147,7 +174,7 @@ function ContactPage() {
                 onChange={handleProductChange}
                 disabled={
                   selectedCount >= 3 &&
-                  !selectedProducts.includes(
+                  !selectedServices.includes(
                     "Clima e Engajamento (Pulses by group)"
                   )
                 }

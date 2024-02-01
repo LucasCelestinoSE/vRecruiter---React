@@ -59,7 +59,7 @@ function App() {
             <Link to="/home">ACESSAR VAGAS</Link>
           </li>
           <li>
-            <a href="/login">CONTATO</a>
+            <a href="#contact">CONTATO</a>
           </li>
           <li>
             <a href="#about-us" onClick={() => scrollToSection("about-us")}>
