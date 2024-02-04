@@ -8,6 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import { logout } from "../../services/auth";
 import ScrollTopButton from "../../components/buttons/scroll-top-button/scroll-top-button";
 import { getVacancies, getCompanies } from "../../services/firestore-DB";
+import { Link } from "react-router-dom";
 
 const UserHomePage = () => {
   const [userName, setUserName] = useState("José Eduardo Santos Azevedo");
@@ -73,7 +74,7 @@ const UserHomePage = () => {
           <h1>Empresas</h1>
           {companies.map((company) => (
             <CompanyCard
-              key={company.id}
+              id={company.id}
               imageUrl={company.imageUrl}
               companyName={company.name}
             />
@@ -93,13 +94,14 @@ const UserHomePage = () => {
 
         <section className="vacancies-section">
           <h1>Vagas</h1>
-          {vacancies.map((vacancy) => (
+          {vacancies.map((vaga) => (
             <VacancyCard
-              key={vacancy.id}
-              imageUrl={vacancy.imageUrl}
-              companyName={vacancy.companyName}
-              title={vacancy.title}
-              description={vacancy.description}
+              key={vaga.id}
+              id={vaga.id}
+              imageUrl={vaga.imageUrl}
+              companyName={vaga.companyName}
+              title={vaga.title}
+              description={vaga.description}
             />
           ))}
         </section>

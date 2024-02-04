@@ -1,4 +1,12 @@
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  getDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "./firebase";
 
 export const getVacancies = async () => {
@@ -26,17 +34,61 @@ export const getCompanies = async () => {
     }));
     return companiesData;
   } catch (error) {
-    console.error("Erro ao buscar empresas:", error.message);
     throw error;
+  }
+};
+
+export const getCompanyById = async (companyId) => {
+  try {
+    const empresasRef = collection(db, "empresas");
+    const empresaDoc = await getDoc(doc(empresasRef, companyId));
+
+    if (!empresaDoc.exists) {
+      throw new Error(`Empresa com ID ${companyId} não encontrada.`);
+    }
+
+    return empresaDoc.data();
+  } catch (error) {
+    throw new Error("Erro ao buscar empresa por ID: " + error.message);
+  }
+};
+
+export async function getVacancyById(id) {
+  console.log("ID: ", id);
+  try {
+    const docRef = doc(db, "vagas", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      return null;
+    }
+  } catch (error) {
+    return null;
+  }
+}
+
+export const getVacanciesFromCompany = async (companyId) => {
+  try {
+    const vagasRef = collection(db, "vagas");
+    const vagasSnapshot = await getDocs(vagasRef);
+
+    const vagasDaEmpresa = vagasSnapshot.docs.filter(
+      (doc) => doc.data().companyID === companyId
+    );
+
+    return vagasDaEmpresa.map((doc) => doc.data());
+  } catch (error) {
+    console.error("Erro ao buscar vagas:", error);
+    return [];
   }
 };
 
 export const addFormDataToFirestore = async (formData) => {
   try {
     const docRef = await addDoc(collection(db, "contatos"), formData);
-    console.log("Documento adicionado com ID: ", docRef.id);
   } catch (error) {
-    console.error("Erro ao adicionar dados ao Firestore: ", error);
     throw error;
   }
 };
