@@ -48,15 +48,15 @@
   margin: 5px 0;
 }
 
-.vacancy-description {
+.vacancy-card-description {
   font-size: 12px;
   width: 200px;
   margin-top: 16px;
   text-align: start;
-  height: 100px;
+  min-height: 95px;
+  max-height: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: wrap;
 }
 
 .vacancy-button {

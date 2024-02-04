@@ -7,6 +7,7 @@ import UserButton from "../../components/buttons/userButton";
 import { FaSearch } from "react-icons/fa";
 import { logout } from "../../services/auth";
 import ScrollTopButton from "../../components/buttons/scroll-top-button/scroll-top-button";
+import { getVacancies, getCompanies } from "../../services/firestore-DB";
 
 const UserHomePage = () => {
   const [userName, setUserName] = useState("José Eduardo Santos Azevedo");
@@ -24,9 +25,23 @@ const UserHomePage = () => {
   useEffect(() => {
     const fetchUserData = async () => {};
 
-    const fetchCompanies = async () => {};
+    const fetchCompanies = async () => {
+      try {
+        const companiesData = await getCompanies();
+        setCompanies(companiesData);
+      } catch (error) {
+        console.error("Erro ao buscar empresas:", error.message);
+      }
+    };
 
-    const fetchVacancies = async () => {};
+    const fetchVacancies = async () => {
+      try {
+        const vacanciesData = await getVacancies();
+        setVacancies(vacanciesData);
+      } catch (error) {
+        console.error("Erro ao buscar vagas:", error.message);
+      }
+    };
 
     fetchUserData();
     fetchCompanies();
@@ -56,11 +71,13 @@ const UserHomePage = () => {
       <div className="sections">
         <section className="companies-section">
           <h1>Empresas</h1>
-          <CompanyCard
-            id={1}
-            imageUrl={BannerImage}
-            companyName={"Empresa 1"}
-          />
+          {companies.map((company) => (
+            <CompanyCard
+              key={company.id}
+              imageUrl={company.imageUrl}
+              companyName={company.name}
+            />
+          ))}
         </section>
 
         <div className="search-bar">
@@ -76,15 +93,15 @@ const UserHomePage = () => {
 
         <section className="vacancies-section">
           <h1>Vagas</h1>
-          <VacancyCard
-            id={1}
-            imageUrl={BannerImage}
-            companyName={"Nome da Empresa"}
-            title={"Título da Vaga"}
-            description={
-              "Uma descrição muito foda que anima qualquer um que a ler e vai querer dar uma olhada."
-            }
-          />
+          {vacancies.map((vacancy) => (
+            <VacancyCard
+              key={vacancy.id}
+              imageUrl={vacancy.imageUrl}
+              companyName={vacancy.companyName}
+              title={vacancy.title}
+              description={vacancy.description}
+            />
+          ))}
         </section>
       </div>
 
