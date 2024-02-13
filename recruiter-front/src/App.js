@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider, useAuth } from "./services/auth-provider.js";
+import { AuthProvider } from "./services/auth-provider.js";
 import ContactPage from "./pages/landing-page-sections/contact-page/contact-page";
 import LoginPage from "./pages/landing-page-sections/login-page/login-page";
 import "./App.css";
@@ -10,6 +10,7 @@ import LandingPage from "./pages/landing-page.js";
 import UserHomePage from "./pages/home/home-page";
 import VacancyPage from "./pages/vacancy-page/vacancy-page.js";
 import CompanyPage from "./pages/company-page/company-page.js";
+import UserProfile from "./pages/user-profile/user-profile.js";
 
 function App() {
   return (
@@ -20,21 +21,17 @@ function App() {
 }
 
 function AppContent() {
-  const { isLoggedIn } = useAuth();
-
   return (
     <Router>
       <div>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route
-            path="/home"
-            element={isLoggedIn ? <UserHomePage /> : <LandingPage />}
-          />
+          <Route path="/home" element={<UserHomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/plans" element={<PlansPage />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/profile/:uid" element={<UserProfile />} />
           <Route path="/vacancy/:id" element={<VacancyPage />} />
           <Route path="/company/:id" element={<CompanyPage />} />
         </Routes>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CompanyCard from "../../components/cards/company-card/company-card";
 import VacancyCard from "../../components/cards/vacancy-card/vacancy-card";
 import "./home-page.css";
@@ -16,6 +16,7 @@ const UserHomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [companies, setCompanies] = useState([]);
   const [vacancies, setVacancies] = useState([]);
+  const uidRef = useRef("");
 
   const handleScroll = () => {
     setIsVisible(window.scrollY >= 300);
@@ -24,7 +25,11 @@ const UserHomePage = () => {
   const handleSearch = () => {};
 
   useEffect(() => {
-    const fetchUserData = async () => {};
+    const fetchUserData = async () => {
+      const storedUser = localStorage.getItem("user");
+      const user = storedUser ? JSON.parse(storedUser) : null;
+      uidRef.current = user ? user.uid : null;
+    };
 
     const fetchCompanies = async () => {
       try {
@@ -63,8 +68,7 @@ const UserHomePage = () => {
 
       <div className="user-info">
         <UserButton
-          username={userName}
-          onProfileClick={() => console.log("Perfil clicado")}
+          username={"Nome do usuário aqui"}
           onLogoutClick={() => logout()}
         />
       </div>
