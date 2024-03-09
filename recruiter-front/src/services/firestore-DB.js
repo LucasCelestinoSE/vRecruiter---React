@@ -4,10 +4,63 @@ import {
   getDocs,
   getDoc,
   doc,
-  query,
-  where,
+  setDoc,
 } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "./firebase";
 import { db } from "./firebase";
+
+export const saveUserProfile = async (uid, profileData, profileImage) => {
+  try {
+    if (!uid) {
+      throw new Error("UID não fornecido ao salvar o perfil do usuário.");
+    }
+
+    let imageUrl = "";
+    if (profileImage) {
+      imageUrl = await saveProfileImageToStorage(uid, profileImage);
+    }
+
+    if (imageUrl) {
+      profileData.photoURL = imageUrl;
+    }
+
+    const profileRef = doc(collection(db, "users"), uid);
+    await setDoc(profileRef, profileData);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const saveProfileImageToStorage = async (userID, imageFile) => {
+  const storageRef = ref(storage, `users/${userID}/profile-image.jpg`);
+  const metadata = {
+    contentType: "image/jpeg",
+  };
+
+  await uploadBytes(storageRef, imageFile, metadata);
+  const downloadURL = await getDownloadURL(storageRef);
+  return downloadURL;
+};
+
+export const getUserProfile = async (uid) => {
+  try {
+    if (!uid) {
+      return null;
+    }
+
+    const profileRef = doc(collection(db, "users"), uid);
+    const profileDoc = await getDoc(profileRef);
+
+    if (profileDoc.exists()) {
+      return profileDoc.data();
+    } else {
+      return null;
+    }
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const getVacancies = async () => {
   try {
@@ -53,8 +106,18 @@ export const getCompanyById = async (companyId) => {
   }
 };
 
+export const saveNewVacancy = async (vacancyData) => {
+  try {
+    const vacancyCollectionRef = collection(db, "vagas");
+    const newVacancyDocRef = await addDoc(vacancyCollectionRef, vacancyData);
+
+    return newVacancyDocRef.id;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export async function getVacancyById(id) {
-  console.log("ID: ", id);
   try {
     const docRef = doc(db, "vagas", id);
     const docSnap = await getDoc(docRef);

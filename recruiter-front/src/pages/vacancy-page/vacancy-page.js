@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
-import Banner from "../../assets/images/background.jpg";
-import Logo from "../../assets/images/logo.png";
 import { getVacancyById } from "../../services/firestore-DB";
 
 import "./vacancy-page.css";

@@ -11,6 +11,7 @@ import UserHomePage from "./pages/home/home-page";
 import VacancyPage from "./pages/vacancy-page/vacancy-page.js";
 import CompanyPage from "./pages/company-page/company-page.js";
 import UserProfile from "./pages/user-profile/user-profile.js";
+import NewVacancyForm from "./components/Forms/New-Vacancy/new-vacancy-form.js";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function AppContent() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/plans" element={<PlansPage />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/form" element={<NewVacancyForm />} />
           <Route path="/profile/:uid" element={<UserProfile />} />
           <Route path="/vacancy/:id" element={<VacancyPage />} />
           <Route path="/company/:id" element={<CompanyPage />} />
