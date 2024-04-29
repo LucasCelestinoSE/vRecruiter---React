@@ -1,0 +1,338 @@
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  background-color: rgba(12, 15, 60, 1);
+}
+
+.contact-left-section {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.contact-left-section img {
+  width: 150px;
+}
+
+.contact-left-section h1 {
+  font-size: 26px;
+  color: white;
+  margin-top: 20px;
+}
+
+.contact-left-section p {
+  font-size: 16px;
+  width: 40vw;
+  text-align: center;
+  color: white;
+  margin-top: 16px;
+}
+
+.contact-left-section h2 {
+  color: white;
+  font-size: 20px;
+  align-self: start;
+  margin-top: 48px;
+  margin-left: 64px;
+}
+
+.contact-left-section ul {
+  align-self: start;
+  width: 30vw;
+  margin-left: 64px;
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+.contact-left-section li {
+  font-size: 20px;
+  margin-top: 24px;
+  text-align: start;
+  color: white;
+}
+
+.contact-animation {
+  margin-top: 46px;
+  width: 250px;
+  height: 250px;
+}
+
+.contact-right-section {
+  flex: 2;
+  padding: 64px;
+  width: 40vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-right-section p {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  color: white;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #eeeeee;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.checkbox-group p {
+  text-align: left;
+  color: white;
+  font-weight: bold;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+}
+
+.checkbox-group input {
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  width: 30vw;
+  background-color: #2bc58c;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 30px;
+}
+
+button[type="submit"]:hover {
+  background-color: #219f74;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .contact-left-section {
+    padding: 24px;
+  }
+
+  .contact-left-section img {
+    width: 150px;
+  }
+
+  .contact-left-section h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .contact-left-section p {
+    font-size: 18px;
+    width: 90vw;
+  }
+
+  .contact-left-section h2 {
+    text-align: left;
+    margin-top: 48px;
+    margin-left: 0px;
+  }
+
+  .contact-left-section ul {
+    align-self: start;
+    margin-left: 0px;
+    width: 90vw;
+    margin-top: 0px;
+    list-style-type: none;
+  }
+
+  .contact-left-section li {
+    font-size: 18px;
+    margin-top: 18px;
+    text-align: start;
+    color: white;
+  }
+
+  .contact-animation {
+    margin-top: 32px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .contact-right-section {
+    flex: 2;
+    padding: 0px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-right-section p {
+    width: 90vw;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+  }
+
+  .contact-right-section form {
+    width: auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group p {
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    font-size: 16px;
+    width: 70vw;
+  }
+
+  .form-group input {
+    width: 90vw;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 20px;
+  }
+
+  .checkbox-group p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    width: 80vw;
+  }
+
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    text-align: start;
+    color: white;
+  }
+
+  .checkbox-group input {
+    margin-right: 10px;
+  }
+
+  button[type="submit"] {
+    width: 90vw;
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .contact-left-section {
+    padding: 24px;
+  }
+
+  .contact-left-section h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .contact-left-section p {
+    font-size: 18px;
+    width: 90vw;
+  }
+
+  .contact-left-section h2 {
+    text-align: left;
+    margin-top: 48px;
+    margin-left: 0px;
+  }
+
+  .contact-left-section ul {
+    align-self: start;
+    margin-left: 0px;
+    width: 90vw;
+    margin-top: 0px;
+    list-style-type: none;
+  }
+
+  .contact-left-section li {
+    font-size: 18px;
+    margin-top: 18px;
+    text-align: start;
+    color: white;
+  }
+
+  .contact-animation {
+    margin-top: 32px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .contact-right-section {
+    flex: 2;
+    padding: 32px;
+    margin: 12px;
+    width: auto;
+  }
+
+  .contact-right-section form {
+    padding: 32px;
+    width: auto;
+  }
+
+  button[type="submit"] {
+    width: 90vw;
+    margin-top: 32px;
+    margin-bottom: 0px;
+  }
+}

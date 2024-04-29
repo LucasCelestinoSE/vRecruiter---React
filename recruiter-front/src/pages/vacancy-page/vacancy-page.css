@@ -1,0 +1,160 @@
+.VacancyPage-container {
+  position: relative;
+}
+
+.VacancyPage-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.VacancyPage-back-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+.VacancyPage-large-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.VacancyPage-company-info {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.VacancyPage-small-image,
+.VacancyPage-image-text,
+.VacancyPage-image-button {
+  position: absolute;
+}
+
+.VacancyPage-small-image {
+  top: 25%;
+  width: 250px;
+  height: 200px;
+  border-radius: 12px;
+  border: 0.2rem solid #fff;
+}
+
+.VacancyPage-image-text {
+  top: 72%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.VacancyPage-image-button {
+  top: 80%;
+  width: 200px;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: #2bc58c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.VacancyPage-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: flex-start;
+  justify-items: center;
+  justify-content: center;
+}
+
+.VacancyPage-content h2 {
+  margin-top: 16px;
+  font-size: 1.2rem;
+}
+
+.VacancyPage-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.VacancyPage-description {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+}
+
+.requisitos {
+  font-size: 1rem;
+  color: #555;
+  max-width: 800px;
+}
+
+@media (max-width: 480px) {
+  .VacancyPage-large-image {
+    width: 100vw;
+    height: 300px;
+    object-fit: fill;
+  }
+
+  .VacancyPage-small-image,
+  .VacancyPage-image-text,
+  .VacancyPage-image-button {
+    position: absolute;
+  }
+
+  .VacancyPage-small-image {
+    top: 20%;
+    width: 150px;
+    height: auto;
+  }
+
+  .VacancyPage-image-text {
+    top: 65%;
+    font-size: 1.4rem;
+  }
+
+  .VacancyPage-image-button {
+    top: 75%;
+    border-radius: 12px;
+    padding: 10px;
+  }
+
+  .VacancyPage-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: flex-start;
+  }
+
+  .VacancyPage-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .VacancyPage-description {
+    font-size: 1rem;
+    max-width: 400px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .requisitos {
+    font-size: 1rem;
+    max-width: 800px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}

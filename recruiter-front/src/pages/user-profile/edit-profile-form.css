@@ -1,0 +1,135 @@
+.edit-profile-form {
+  display: flex;
+  min-height: 90vh;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+  background-color: #f9f9f9;
+}
+
+input[type="file"] {
+  font-size: 14px;
+}
+
+.upload-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+.upload-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.form-label-photo img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #4caf50;
+}
+
+.edit-profile-form .edit-profile-left,
+.edit-profile-form .edit-profile-right {
+  padding: 20px;
+  max-width: 400px;
+  flex-grow: 1;
+}
+
+.edit-profile-right {
+  max-width: 400px;
+}
+
+.edit-profile-form .edit-profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.edit-profile-form .form-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-button {
+  width: 200px;
+  height: 50px;
+  background-color: #4caf50;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.form-input {
+  background-color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #eeeeee;
+}
+
+.form-input-cep {
+  width: 80px;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #eeeeee;
+}
+
+.form-mini-input {
+  width: 80px;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #eeeeee;
+}
+
+.mini-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  align-self: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.location-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.location-inputs input {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-subsection {
+  display: grid;
+  max-width: 400px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.form-subsection input {
+  width: 80%;
+  padding: 8px;
+  box-sizing: border-box;
+}
