@@ -16,6 +16,7 @@ const UserHomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [companies, setCompanies] = useState([]);
   const [vacancies, setVacancies] = useState([]);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const uidRef = useRef("");
 
   const handleScroll = () => {
@@ -29,6 +30,7 @@ const UserHomePage = () => {
       const storedUser = localStorage.getItem("user");
       const user = storedUser ? JSON.parse(storedUser) : null;
       uidRef.current = user ? user.uid : null;
+      setIsUserLoggedIn(!!user);
     };
 
     const fetchCompanies = async () => {
@@ -67,10 +69,9 @@ const UserHomePage = () => {
       </div>
 
       <div className="user-info">
-        <UserButton
-          username={"Nome do usuário aqui"}
-          onLogoutClick={() => logout()}
-        />
+        {isUserLoggedIn && (
+          <UserButton username="MENU" onLogoutClick={() => logout()} />
+        )}
       </div>
 
       <div className="sections">

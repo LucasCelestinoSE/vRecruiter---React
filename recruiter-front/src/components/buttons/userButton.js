@@ -26,7 +26,7 @@ const UserButton = ({ username, onLogoutClick }) => {
 
   return (
     <div className="user-button" onClick={handleDropdownToggle}>
-      <span>{username}</span>
+      <span>MENU</span>
       <FaAngleDown color="#fff" />
       {isDropdownOpen && (
         <div className="dropdown-menu">
