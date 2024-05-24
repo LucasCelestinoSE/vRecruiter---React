@@ -8,10 +8,8 @@ import { FaSearch } from "react-icons/fa";
 import { logout } from "../../services/auth";
 import ScrollTopButton from "../../components/buttons/scroll-top-button/scroll-top-button";
 import { getVacancies, getCompanies } from "../../services/firestore-DB";
-import { Link } from "react-router-dom";
 
 const UserHomePage = () => {
-  const [userName, setUserName] = useState("José Eduardo Santos Azevedo");
   const [isVisible, setIsVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [companies, setCompanies] = useState([]);
@@ -69,9 +67,7 @@ const UserHomePage = () => {
       </div>
 
       <div className="user-info">
-        {isUserLoggedIn && (
-          <UserButton username="MENU" onLogoutClick={() => logout()} />
-        )}
+        <UserButton username="MENU" onLogoutClick={() => logout()} />
       </div>
 
       <div className="sections">

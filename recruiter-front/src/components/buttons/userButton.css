@@ -12,6 +12,7 @@
   padding: 10px;
   cursor: pointer;
   align-items: center;
+  justify-content: space-around;
   background-color: transparent;
   background: none;
   position: relative;
@@ -67,4 +68,28 @@
 .dropdown-menu span:hover {
   background-color: #2bc58c;
   color: #fff;
+}
+
+.user-button .login-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.user-button .login-link h1 {
+  margin-left: 5px;
+  font-size: 1.1rem;
+}
+
+.user-button svg {
+  width: 18px;
+  height: 18px;
+  margin-left: 20px;
+}
+
+.user-button .login-link svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
 }
