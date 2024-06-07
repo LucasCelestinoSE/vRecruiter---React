@@ -17,7 +17,7 @@ const VacancyCard = ({ id, companyName, imageUrl, title, description }) => {
           <p className="name-company">{companyName}</p>
         </div>
 
-        <div>
+        <div className="vacancy-info">
           <p className="vacancy-title">{title}</p>
           <p className="vacancy-card-description">{description}</p>
           <Link to={`/vacancy/${id}`}>

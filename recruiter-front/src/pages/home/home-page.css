@@ -15,22 +15,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
-  gap: 50px;
+  gap: 10px;
 }
 
-.sections .companies-section {
-  align-self: flex-start;
-  width: 100%;
+.companies-container {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  overflow-x: auto;
+  align-items: center;
+  justify-content: center;
 }
 
-.sections .companies-section h1 {
-  font-size: 1.2rem;
+.companies-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 8px;
 }
-
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  gap: 10px;
+}
 .sections .search-bar {
   display: flex;
+  flex-direction: row;
   width: 500px;
+
   align-items: center;
 }
 
@@ -62,6 +77,24 @@
   font-size: 20px;
 }
 
+.sections .vacancies-container {
+  display: flex;
+  justify-content: center;
+  width: 45%;
+  overflow: visible;
+}
+
+.sections .vacancies-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px 8px;
+}
+
+.sections .vacancies-section h1 {
+  font-size: 1.5rem;
+}
+
 @media (max-width: 480px) {
   .banner img {
     width: 100%;
@@ -70,9 +103,33 @@
   }
 
   .sections .search-bar {
-    display: flex;
     width: 350px;
+  }
+
+  .sections h1 {
+    font-size: 1.2rem;
+  }
+
+  .sections .companies-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 8px;
+    overflow-x: auto;
     align-items: center;
+    justify-content: center;
+  }
+
+  .sections .companies-section {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .sections .vacancies-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px 8px;
   }
 }
 

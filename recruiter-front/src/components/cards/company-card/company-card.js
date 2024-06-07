@@ -11,7 +11,7 @@ const CompanyCard = ({ id, companyName, imageUrl }) => {
       <div className="company-details">
         <p className="company-name">{companyName}</p>
         <Link to={`/company/${id}`}>
-          <button className="company-button">Ver perfil</button>
+          <button className="company-button">PERFIL</button>
         </Link>
       </div>
     </div>

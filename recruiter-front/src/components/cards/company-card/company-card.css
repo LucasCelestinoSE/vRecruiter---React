@@ -1,6 +1,6 @@
 .company-card {
-  width: 200px;
-  height: 250px;
+  min-width: 200px;
+  min-height: 250px;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
@@ -13,6 +13,7 @@
 
 .company-logo {
   width: 100%;
+  max-width: 200px;
   height: 150px;
   object-fit: cover;
   border-bottom: 1px solid #ccc;
@@ -24,7 +25,7 @@
 
 .company-name {
   color: #000;
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: bold;
   margin: 5px 0;
   white-space: nowrap;
@@ -37,12 +38,13 @@
 }
 
 .company-button {
-  background-color: #2bc58c;
+  background-color: #00b27b;
   width: 100%;
   height: 40px;
   color: #ffffff;
   border: none;
   cursor: pointer;
+  font-weight: bold;
   transition: background-color 0.3s ease-in-out;
   margin-top: 22px;
 }
