@@ -118,6 +118,7 @@ const UserHomePage = () => {
                   companyName={vaga.companyName}
                   title={vaga.title}
                   description={vaga.description}
+                  requisitos={vaga.requisitos}
                 />
               ))
             ) : (

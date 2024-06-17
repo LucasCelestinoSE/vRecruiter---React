@@ -1,22 +1,28 @@
 .company-card {
-  min-width: 200px;
-  min-height: 250px;
-  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
 }
 
 .company-card:hover {
-  transform: scale(1.005);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .company-logo {
   width: 100%;
-  max-width: 200px;
-  height: 150px;
+  height: 70%;
   object-fit: cover;
-  border-bottom: 1px solid #ccc;
 }
 
 .company-details {
@@ -24,31 +30,35 @@
 }
 
 .company-name {
-  color: #000;
+  color: #333;
   font-size: 1.2rem;
   font-weight: bold;
-  margin: 5px 0;
+  margin: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.company-card.hovered {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.company-button {
-  background-color: #00b27b;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 40px;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease-in-out;
-  margin-top: 22px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.company-button:hover {
-  background-color: #219f74;
+.company-card.hovered .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
