@@ -3,6 +3,7 @@ import { LuTrash2 } from "react-icons/lu";
 import { useParams } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
 import ExperiencePopup from "../../components/pop-up/exp-popup/exp-popup";
+import DefaultProfileImage from "../../assets/images/profile-image.png";
 
 import EducationPopup from "../../components/pop-up/edu-popup/edu-popup";
 import LanguagePopup from "../../components/pop-up/lang-popup/lang-poopup";
@@ -186,6 +187,13 @@ const ProfilePage = () => {
     const selectedFile = e.target.files[0];
 
     if (selectedFile) {
+      if (selectedFile.size > 1048576) {
+        alert(
+          "A imagem selecionada é muito grande. Por favor, selecione uma imagem menor que 1MB."
+        );
+        return;
+      }
+
       const objectUrl = URL.createObjectURL(selectedFile);
       setSelectedImage(selectedFile);
       setUserImage(objectUrl);
@@ -204,7 +212,12 @@ const ProfilePage = () => {
             <div>
               <div className="select-photo">
                 <img
-                  src={userImage || editedProfile.photoURL}
+                  src={
+                    userImage ||
+                    (editedProfile && editedProfile.photoURL) || (
+                      <DefaultProfileImage />
+                    )
+                  }
                   alt=""
                   className="profile-image"
                 />
@@ -213,24 +226,23 @@ const ProfilePage = () => {
                   accept="image/*"
                   onChange={(e) => handleImageChange(e)}
                 />
+                <p>A imagem deve ter tamanho maximo de 1MB</p>
               </div>
             </div>
-            <b>Nome</b>
-            <input
-              className="name-input"
-              type="text"
-              name="name"
-              value={userProfile.name}
-              onChange={handleInputChange}
-            />
           </>
         ) : (
           <>
             <img
-              src={userProfile.photoURL}
-              alt="Profile"
+              src={
+                userImage ||
+                (editedProfile && editedProfile.photoURL) || (
+                  <DefaultProfileImage />
+                )
+              }
+              alt=""
               className="profile-image"
             />
+
             <div className="header-text">
               <h1>{userProfile.name}</h1>
               <button className="edit-btn" onClick={handleEdit}>
@@ -257,6 +269,17 @@ const ProfilePage = () => {
           <div className="user-info-inputs">
             <div className="user-info-input">
               <input
+                className="name-input"
+                type="text"
+                name="name"
+                placeholder="Insira o seu nome completo"
+                value={userProfile.name}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="user-info-input">
+              <input
                 type="text"
                 name="email"
                 value={editedProfile.email}
@@ -264,6 +287,7 @@ const ProfilePage = () => {
                 placeholder="Insira o seu email"
               />
             </div>
+
             <div className="user-info-input">
               <input
                 type="text"
@@ -280,6 +304,7 @@ const ProfilePage = () => {
                 placeholder="Insira o seu número"
               />
             </div>
+
             <div className="user-info-input">
               <input
                 type="text"
@@ -322,7 +347,7 @@ const ProfilePage = () => {
                 name="state"
                 value={editedProfile.state}
                 onChange={handleInputChange}
-                placeholder="Nome do seu estado"
+                placeholder="UF (Estado)"
               />
             </div>
           </div>

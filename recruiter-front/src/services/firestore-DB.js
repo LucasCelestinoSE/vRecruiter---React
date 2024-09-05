@@ -137,11 +137,18 @@ export const getVacanciesFromCompany = async (companyId) => {
     const vagasRef = collection(db, "vagas");
     const vagasSnapshot = await getDocs(vagasRef);
 
-    const vagasDaEmpresa = vagasSnapshot.docs.filter(
-      (doc) => doc.data().companyID === companyId
-    );
+    const vagasDaEmpresa = vagasSnapshot.docs.filter((doc) => {
+      const data = doc.data();
+      return data.companyID === companyId;
+    });
 
-    return vagasDaEmpresa.map((doc) => doc.data());
+    return vagasDaEmpresa.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        ...data,
+      };
+    });
   } catch (error) {
     console.error("Erro ao buscar vagas:", error);
     return [];

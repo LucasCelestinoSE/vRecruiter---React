@@ -2,19 +2,26 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./company-card.css";
 
-const CompanyCard = ({ id, companyName, imageUrl }) => {
+const CompanyCard = ({ id, companyName, imageUrl, description }) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <div className={`company-card ${isHover ? "hovered" : ""}`}>
+    <Link
+      to={`/company/${id}`}
+      className={`company-card ${isHover ? "hovered" : ""}`}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <img src={imageUrl} alt={companyName} className="company-logo" />
       <div className="company-details">
         <p className="company-name">{companyName}</p>
-        <Link to={`/company/${id}`}>
-          <button className="company-button">Ver perfil</button>
-        </Link>
       </div>
-    </div>
+      {isHover && (
+        <div className="overlay">
+          <p className="overlay-text">Visitar perfil</p>
+        </div>
+      )}
+    </Link>
   );
 };
 

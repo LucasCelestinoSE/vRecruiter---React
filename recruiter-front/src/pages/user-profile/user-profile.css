@@ -38,7 +38,7 @@
 }
 
 .user-info-input input {
-  width: 200px;
+  width: 300px;
   height: 20px;
   border-radius: 12px;
   padding: 10px;
@@ -94,6 +94,7 @@
   height: 200px;
   margin: 20px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: #333 solid 0.1px;
 }
 
 .profile-info {

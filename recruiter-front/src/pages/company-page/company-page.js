@@ -15,29 +15,20 @@ const CompanyPage = () => {
   const [vagas, setVagas] = useState([]);
 
   useEffect(() => {
-    const fetchCompanyData = async () => {
+    const fetchData = async () => {
       try {
         const companyData = await getCompanyById(id);
-        setCompany(companyData);
-      } catch (error) {
-        console.error("Erro ao buscar empresa:", error.message);
-      }
-    };
-
-    const fetchCompanyVacancies = async () => {
-      try {
         const vagasDaEmpresa = await getVacanciesFromCompany(id);
+        setCompany(companyData);
         setVagas(vagasDaEmpresa);
       } catch (error) {
-        console.error("Erro ao buscar vagas:", error.message);
-        setVagas([]);
-        alert("Erro ao carregar as vagas da empresa.");
+        console.error("Erro ao buscar dados:", error.message);
+        alert("Erro ao carregar dados da empresa ou vagas.");
       }
     };
 
-    fetchCompanyData();
-    fetchCompanyVacancies();
-  }, [company, id]);
+    fetchData();
+  }, [id]);
 
   return (
     <div className="CompanyPage-container">

@@ -33,6 +33,10 @@
   margin-bottom: 34px;
 }
 
+.right-section p {
+  color: #fff;
+}
+
 .card {
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;

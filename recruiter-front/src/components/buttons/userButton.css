@@ -6,13 +6,13 @@
 .user-button {
   display: flex;
   justify-content: space-between;
-  width: 200px;
-  max-width: 200px;
+  width: 100px;
   border: 1px solid #fff;
   border-radius: 12px;
   padding: 10px;
   cursor: pointer;
   align-items: center;
+  justify-content: space-around;
   background-color: transparent;
   background: none;
   position: relative;
@@ -20,6 +20,7 @@
 
 .user-button span {
   color: #fff;
+  font-weight: bold;
   max-width: 200px;
   white-space: nowrap;
   overflow: hidden;
@@ -28,7 +29,6 @@
 
 .user-button .dropdown-menu span {
   display: flex;
-
   color: #fff;
   font-weight: bold;
   max-width: 200px;
@@ -68,4 +68,28 @@
 .dropdown-menu span:hover {
   background-color: #2bc58c;
   color: #fff;
+}
+
+.user-button .login-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.user-button .login-link h1 {
+  margin-left: 5px;
+  font-size: 1.1rem;
+}
+
+.user-button svg {
+  width: 18px;
+  height: 18px;
+  margin-left: 20px;
+}
+
+.user-button .login-link svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
 }

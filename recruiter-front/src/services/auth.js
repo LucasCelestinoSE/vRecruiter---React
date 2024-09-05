@@ -33,7 +33,7 @@ export const register = async (email, password) => {
     );
     const user = userCredential.user;
     localStorage.setItem("user", JSON.stringify(user));
-    window.location.href = "/home";
+    window.location.href = `/home`;
     return user;
   } catch (error) {
     throw new Error("Erro ao registrar: " + error.message);
@@ -45,7 +45,7 @@ export const logout = async () => {
     await signOut(auth);
 
     localStorage.removeItem("user");
-    window.location.href = "/home";
+    window.location.href = "/";
   } catch (error) {
     throw new Error("Erro ao fazer logout: " + error.message);
   }
