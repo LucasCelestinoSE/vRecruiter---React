@@ -12,7 +12,7 @@ class Empresa {
   static fromMap(map) {
     return new Empresa(map.empresas);
   }
-
+  // Comentário.
   toJson() {
     return JSON.stringify(this.toMap());
   }
