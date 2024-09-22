@@ -509,49 +509,49 @@ const ProfilePage = () => {
           ))}
       </div>
 
-      <div className="profile-section">
-        <h2>
-          Deficiências
-          {isEditing && (
-            <span
-              className="add-button"
-              onClick={() => setShowDisabPopup(true)}
-            >
-              <p>Adicionar</p>
-              <IoMdAdd color="4caf50" />
-            </span>
-          )}
-        </h2>
-        {showDisabPopup && (
-          <DisabilityPopup
-            handleClose={handleCloseDisabPopup}
-            handleAddDisability={handleAddDisability}
-          />
-        )}
-        <ul>
-          {editedProfile.disabilities &&
-            editedProfile.disabilities.map((disability, index) => (
-              <li key={index} className="disab-section">
-                {disability}
-                {isEditing && (
-                  <LuTrash2
-                    color="FF0000"
-                    onClick={() => handleRemoveItem("disabilities", index)}
-                    style={{ cursor: "pointer", float: "right" }}
-                  />
-                )}
-              </li>
-            ))}
-        </ul>
-        {isEditing && (
-          <div className="edit-buttons">
-            <button onClick={handleSave}>Salvar</button>
-            <button className="cancel-btn" onClick={handleCancelEdit}>
-              Cancelar
-            </button>
-          </div>
-        )}
+      {(editedProfile.disabilities?.length > 0 || isEditing) && (
+  <div className="profile-section">
+    <h2>
+      Deficiências
+      {isEditing && (
+        <span className="add-button" onClick={() => setShowDisabPopup(true)}>
+          <p>Adicionar</p>
+          <IoMdAdd color="4caf50" />
+        </span>
+      )}
+    </h2>
+    {showDisabPopup && (
+      <DisabilityPopup
+        handleClose={handleCloseDisabPopup}
+        handleAddDisability={handleAddDisability}
+      />
+    )}
+    <ul>
+      {editedProfile.disabilities &&
+        editedProfile.disabilities.map((disability, index) => (
+          <li key={index} className="disab-section">
+            {disability}
+            {isEditing && (
+              <LuTrash2
+                color="FF0000"
+                onClick={() => handleRemoveItem("disabilities", index)}
+                style={{ cursor: "pointer", float: "right" }}
+              />
+            )}
+          </li>
+        ))}
+    </ul>
+    {isEditing && (
+      <div className="edit-buttons">
+        <button onClick={handleSave}>Salvar</button>
+        <button className="cancel-btn" onClick={handleCancelEdit}>
+          Cancelar
+        </button>
       </div>
+    )}
+  </div>
+)}
+
     </div>
   );
 };
