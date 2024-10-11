@@ -5,8 +5,16 @@ import {
   getDoc,
   doc,
   setDoc,
+  deleteDoc,
+  query,
+  where,
 } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 import { storage } from "./firebase";
 import { db } from "./firebase";
 
@@ -43,6 +51,24 @@ export const saveProfileImageToStorage = async (userID, imageFile) => {
   return downloadURL;
 };
 
+export const saveCompanyImageToStorage = async (
+  companyID,
+  imageFile,
+  imageType
+) => {
+  const storageRef = ref(
+    storage,
+    `companies/${companyID}/images/${imageType}.jpg`
+  );
+  const metadata = {
+    contentType: "image/jpeg",
+  };
+
+  await uploadBytes(storageRef, imageFile, metadata);
+  const downloadURL = await getDownloadURL(storageRef);
+  return downloadURL;
+};
+
 export const getUserProfile = async (uid) => {
   try {
     if (!uid) {
@@ -59,6 +85,44 @@ export const getUserProfile = async (uid) => {
     }
   } catch (error) {
     throw error;
+  }
+};
+
+export const editCompany = async (companyId, updatedData) => {
+  try {
+    const companyRef = doc(db, "empresas", companyId);
+    await setDoc(companyRef, updatedData, { merge: true });
+    console.log("Empresa editada com sucesso.");
+  } catch (error) {
+    throw new Error("Erro ao editar empresa: " + error.message);
+  }
+};
+
+export const deleteCompany = async (companyId) => {
+  try {
+    const storageRef = ref(storage, `images/${companyId}/`);
+    await deleteObject(storageRef);
+
+    // 2. Excluir todas as vagas associadas à empresa
+    const vacanciesRef = collection(db, "vagas");
+    const vacanciesQuery = query(
+      vacanciesRef,
+      where("companyId", "==", companyId)
+    );
+    const vacanciesSnapshot = await getDocs(vacanciesQuery);
+
+    const deletePromises = vacanciesSnapshot.docs.map(async (vacancyDoc) => {
+      await deleteDoc(doc(vacanciesRef, vacancyDoc.id));
+    });
+
+    await Promise.all(deletePromises);
+
+    // 3. Excluir a empresa
+    const companyRef = doc(db, "empresas", companyId);
+    await deleteDoc(companyRef);
+    console.log("Empresa e seus registros deletados com sucesso.");
+  } catch (error) {
+    throw new Error("Erro ao deletar empresa: " + error.message);
   }
 };
 

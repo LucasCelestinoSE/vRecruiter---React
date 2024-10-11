@@ -19,6 +19,10 @@ const CompanyPage = () => {
       try {
         const companyData = await getCompanyById(id);
         const vagasDaEmpresa = await getVacanciesFromCompany(id);
+
+        console.log("Dados da empresa:", companyData); 
+        console.log("Vagas da empresa:", vagasDaEmpresa); // Verifique se as vagas estão corretas
+
         setCompany(companyData);
         setVagas(vagasDaEmpresa);
       } catch (error) {

@@ -1,5 +1,6 @@
 import React from "react";
-import { FaInstagram, FaLinkedin, FaWhatsapp, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import logo from "../../assets/images/logo-bgr.png";
 import "./footer.css";
 
@@ -19,8 +20,8 @@ const Footer = () => {
   );
 
   return (
-      <div className="footer-container">
-          <div className="white-space"></div>
+    <div className="footer-container">
+      <div className="white-space"></div>
       <div
         className="social-media-section"
         style={{ flex: constraints > 600 ? 5 : 5 }}
@@ -49,7 +50,7 @@ const Footer = () => {
           })}
           {createIconButton({
             icon: (
-              <FaTwitter size={constraints > 800 ? 32 : 26} color="white" />
+              <FaXTwitter size={constraints > 800 ? 32 : 26} color="white" />
             ),
             onTap: () => {},
           })}

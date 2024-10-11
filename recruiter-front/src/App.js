@@ -11,6 +11,8 @@ import UserHomePage from "./pages/home/home-page";
 import CompanyPage from "./pages/company-page/company-page.js";
 import UserProfile from "./pages/user-profile/user-profile.js";
 import NewVacancyForm from "./components/Forms/New-Vacancy/new-vacancy-form.js";
+import AdminPage from "./pages/admin-page/AdminPage.js";
+import RegisterCompanyForm from "./components/Forms/company-register/RegisterCompanyForm.js";
 
 function App() {
   return (
@@ -34,6 +36,9 @@ function AppContent() {
           <Route path="/form" element={<NewVacancyForm />} />
           <Route path="/profile/:uid" element={<UserProfile />} />
           <Route path="/company/:id" element={<CompanyPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin" element={<RegisterCompanyForm />} />
+          
         </Routes>
       </div>
     </Router>

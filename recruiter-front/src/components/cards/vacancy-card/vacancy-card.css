@@ -1,60 +1,72 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
 .vacancy-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-items: flex-start;
-  justify-content: space-evenly;
-  width: 250px;
-  height: 250px;
+  justify-content: space-between; /* Garante que o conteúdo do cartão seja distribuído */
+  width: 260px;
+  height: 300px;
   border-radius: 12px;
-  overflow: hidden;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .vacancy-card:hover {
-  transform: scale(1.01);
+  transform: scale(1.03);
 }
 
 .vacancy-details {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 10px;
   text-align: center;
+  flex-grow: 1;
 }
 
 .company-info {
   display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .logo-company {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   object-fit: cover;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .name-company {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  margin: 5px 0;
+  color: #333;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .vacancy-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 12px 0;
+  color: #444;
 }
 
 .vacancy-card-description {
-  font-size: 12px;
-  width: 200px;
-  text-align: start;
-  min-height: 100px;
-  max-height: 100px;
+  font-size: 14px;
+  color: #666;
+  width: 100%;
+  height: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -62,14 +74,14 @@
 .vacancy-button {
   width: 100%;
   background-color: #2bc58c;
-  color: #ffffff;
+  color: #fff;
   font-weight: bold;
   border: none;
-  border-radius: 12px;
-  padding: 10px;
-
-  margin-top: 12px;
+  border-radius: 8px;
+  padding: 12px;
   cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
 .vacancy-button:hover {
@@ -78,69 +90,50 @@
 
 @media (max-width: 650px) {
   .vacancy-card {
-    display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-items: flex-start;
-    width: 90vw;
-    height: 100px;
+    width: 95vw;
+    height: 250px;
+    padding: 10px;
   }
 
   .vacancy-details {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 0 10px;
   }
 
   .company-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    justify-items: flex-start;
-    align-items: flex-start;
-  }
-
-  .vacancy-info {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 8px;
   }
 
   .logo-company {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
   }
 
   .name-company {
-    font-size: 14px;
-    margin: 5px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1rem;
   }
 
   .vacancy-title {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 1rem;
     margin: 5px 0;
   }
 
   .vacancy-card-description {
     font-size: 12px;
-    width: 200px;
-    margin-top: 16px;
-    text-align: start;
-    min-height: 95px;
-    max-height: 100px;
+    width: 100%;
+    margin-top: 8px;
+    height: 80px;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.4;
   }
 
   .vacancy-button {
-    display: none;
+    display: block;
+    margin-top: 10px;
   }
 }

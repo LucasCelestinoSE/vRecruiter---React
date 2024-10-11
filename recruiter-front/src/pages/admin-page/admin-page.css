@@ -1,0 +1,185 @@
+.admin-page {
+  padding: 20px;
+}
+
+.companies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.company-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 240px;
+  height: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  position: relative; /* Adicionado para que a overlay fique relativa */
+}
+
+.company-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.company-item h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.company-item p {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.company-item button {
+  width: calc(50% - 5px);
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 10px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 0 2.5px;
+}
+
+.company-item button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.company-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.image-container-profile {
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden; /* Garante que a imagem não transborde */
+  position: relative; /* Para a sobreposição da imagem de perfil */
+}
+
+.image-container-banner {
+  width: 100%;
+  height: 300px;
+  object-fit: cover; /* Faz com que a imagem cubra toda a área */
+  border-radius: 8px; /* Arredonda os cantos da imagem */
+  position: relative; /* Para a sobreposição do banner */
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz com que a imagem cubra toda a área */
+  border-radius: 8px; /* Arredonda os cantos da imagem */
+}
+
+.profile-image-container {
+  margin-top: 10px; /* Espaço entre o banner e a imagem de perfil */
+}
+
+.image-container-profile {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+  border-radius: 50%; /* Torna a imagem de perfil redonda */
+  width: 100px; /* Ajuste a largura da imagem de perfil */
+  height: 100px; /* Ajuste a altura da imagem de perfil */
+  object-fit: cover; /* Faz com que a imagem de perfil cubra toda a área */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar destaque */
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro com transparência */
+  color: white; /* Texto branco para contraste */
+  border-radius: 8px;
+  opacity: 0; /* Começa invisível */
+  transition: opacity 0.3s ease;
+  cursor: pointer; /* Cursor indica que é clicável */
+}
+
+.image-container-banner:hover .overlay,
+.image-container-profile:hover .overlay {
+  opacity: 1; /* Mostra a sobreposição ao passar o mouse */
+}
+
+@media (max-width: 1023px) {
+  .company-item {
+    width: 220px;
+    min-height: 350px;
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .company-item {
+    width: 100%;
+    min-height: 320px;
+    max-height: 320px;
+  }
+
+  .company-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .company-item h3 {
+    font-size: 1.25rem;
+  }
+
+  .company-item p {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+  }
+}

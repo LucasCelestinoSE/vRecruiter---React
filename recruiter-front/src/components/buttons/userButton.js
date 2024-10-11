@@ -30,7 +30,7 @@ const UserButton = ({ username, onLogoutClick }) => {
     <div className="user-button">
       {!isLoggedIn ? (
         <Link className="login-link" to="/">
-          <FaUserCircle /> {/* Adiciona o ícone do usuário */}
+          <FaUserCircle />
           <h1>LOGIN</h1>
         </Link>
       ) : (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { LuTrash2 } from "react-icons/lu";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
 import ExperiencePopup from "../../components/pop-up/exp-popup/exp-popup";
 import DefaultProfileImage from "../../assets/images/profile-image.png";
@@ -16,6 +16,7 @@ import {
   saveProfileImageToStorage,
   fetchProfileImageFromStorage,
 } from "../../services/firestore-DB";
+import { FaAngleLeft } from "react-icons/fa";
 
 import "./user-profile.css";
 
@@ -206,6 +207,13 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-container">
+      <div className="back-button-container">
+        <Link to="/home">
+          <button className="back-button" aria-label="Voltar para Home">
+            <FaAngleLeft />
+          </button>
+        </Link>
+      </div>
       <div className="profile-header">
         {isEditing ? (
           <>
@@ -510,48 +518,50 @@ const ProfilePage = () => {
       </div>
 
       {(editedProfile.disabilities?.length > 0 || isEditing) && (
-  <div className="profile-section">
-    <h2>
-      Deficiências
-      {isEditing && (
-        <span className="add-button" onClick={() => setShowDisabPopup(true)}>
-          <p>Adicionar</p>
-          <IoMdAdd color="4caf50" />
-        </span>
-      )}
-    </h2>
-    {showDisabPopup && (
-      <DisabilityPopup
-        handleClose={handleCloseDisabPopup}
-        handleAddDisability={handleAddDisability}
-      />
-    )}
-    <ul>
-      {editedProfile.disabilities &&
-        editedProfile.disabilities.map((disability, index) => (
-          <li key={index} className="disab-section">
-            {disability}
+        <div className="profile-section">
+          <h2>
+            Deficiências
             {isEditing && (
-              <LuTrash2
-                color="FF0000"
-                onClick={() => handleRemoveItem("disabilities", index)}
-                style={{ cursor: "pointer", float: "right" }}
-              />
+              <span
+                className="add-button"
+                onClick={() => setShowDisabPopup(true)}
+              >
+                <p>Adicionar</p>
+                <IoMdAdd color="4caf50" />
+              </span>
             )}
-          </li>
-        ))}
-    </ul>
-    {isEditing && (
-      <div className="edit-buttons">
-        <button onClick={handleSave}>Salvar</button>
-        <button className="cancel-btn" onClick={handleCancelEdit}>
-          Cancelar
-        </button>
-      </div>
-    )}
-  </div>
-)}
-
+          </h2>
+          {showDisabPopup && (
+            <DisabilityPopup
+              handleClose={handleCloseDisabPopup}
+              handleAddDisability={handleAddDisability}
+            />
+          )}
+          <ul>
+            {editedProfile.disabilities &&
+              editedProfile.disabilities.map((disability, index) => (
+                <li key={index} className="disab-section">
+                  {disability}
+                  {isEditing && (
+                    <LuTrash2
+                      color="FF0000"
+                      onClick={() => handleRemoveItem("disabilities", index)}
+                      style={{ cursor: "pointer", float: "right" }}
+                    />
+                  )}
+                </li>
+              ))}
+          </ul>
+          {isEditing && (
+            <div className="edit-buttons">
+              <button onClick={handleSave}>Salvar</button>
+              <button className="cancel-btn" onClick={handleCancelEdit}>
+                Cancelar
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

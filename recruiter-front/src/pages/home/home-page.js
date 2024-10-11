@@ -14,6 +14,7 @@ import { FaSearch } from "react-icons/fa";
 import { logout } from "../../services/auth";
 import ScrollTopButton from "../../components/buttons/scroll-top-button/scroll-top-button";
 import { getVacancies, getCompanies } from "../../services/firestore-DB";
+import Footer from "../../components/footer/footer";
 
 const UserHomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -114,6 +115,7 @@ const UserHomePage = () => {
                 <VacancyCard
                   key={vaga.id}
                   id={vaga.id}
+                  companyId={vaga.companyID}
                   imageUrl={vaga.imageUrl}
                   companyName={vaga.companyName}
                   title={vaga.title}
@@ -127,6 +129,7 @@ const UserHomePage = () => {
           </div>
         </div>
       </div>
+      <Footer />
 
       {isVisible && <ScrollTopButton />}
     </div>

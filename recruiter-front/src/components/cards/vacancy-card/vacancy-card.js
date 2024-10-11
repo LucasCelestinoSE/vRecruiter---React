@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Importe o Link
 import VacancyModal from "../../modal/VacancyModal";
 import "./vacancy-card.css";
 
 const VacancyCard = ({
-  id,
+  id, // id da vaga
+  companyId, // id da empresa
   companyName,
   imageUrl,
   title,
@@ -24,8 +26,14 @@ const VacancyCard = ({
       >
         <div className="vacancy-details">
           <div className="company-info">
-            <img src={imageUrl} alt={companyName} className="logo-company" />
-            <p className="name-company">{companyName}</p>
+            {/* Usando o companyId em vez do id da vaga */}
+            <Link to={`/company/${companyId}`}>
+              <img src={imageUrl} alt={companyName} className="logo-company" />
+            </Link>
+
+            <Link to={`/company/${companyId}`} className="name-company">
+              <p>{companyName}</p>
+            </Link>
           </div>
 
           <div className="vacancy-info">
